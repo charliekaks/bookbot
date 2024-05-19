@@ -17,17 +17,18 @@ def get_book_text(path):
         return f.read()
     
 
-character_dict = {}
+
 def get_character_count(text):
+    character_dict = {}
     alphabet = "abcdefghijklmnopqrstuvwxyz"
     for character in alphabet:
         count = 0
-        for char in text:
+        lower_text = text.lower()
+        for char in lower_text:
             if(char == character):
                 count+=1
                 character_dict[character] = count
-                print(count)
-    print(character_dict)
+    return character_dict
 
 
 
