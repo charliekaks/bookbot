@@ -30,6 +30,13 @@ def get_character_count(text):
                 character_dict[character] = count
     return character_dict
 
+def sort_on(dict):
+    return dict["num"]
+
+def get_report(text):
+    character_dict =get_character_count(text)
+
+
 
 
 main()
