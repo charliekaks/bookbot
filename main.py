@@ -4,7 +4,15 @@ def main():
     num_words = get_num_words(text)
     print(f"{num_words} words found in the document")
     get_character_count(text)
+    get_report(text)
 
+    print(f"--- Begin report of {book_path} ---")
+    print(f"{num_words} words found in the document")
+    print()
+    report_list = get_report(text)
+    for alpha in report_list:
+        print(f"The '{alpha['char']}' character was found {alpha['num']} times")
+    print("--- End report ---")
 
 def get_num_words(text):
     words = text.split()
@@ -35,8 +43,11 @@ def sort_on(dict):
 
 def get_report(text):
     character_dict =get_character_count(text)
-
-
+    report_list=[]
+    for char in character_dict:
+        report_list.append({"char": char, "num":character_dict[char]})
+    report_list.sort(reverse=True, key=sort_on)
+    return report_list
 
 
 main()
